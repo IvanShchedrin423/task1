@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NameSurname
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = " Щедрин";
+            string surname = " Иван";
+            string donor;
+            Console.WriteLine(name + surname);
+            donor = name;
+            name = surname;
+            Console.WriteLine(name + donor);      
+        }
+    }
+}
