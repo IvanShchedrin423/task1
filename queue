@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace queue
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int countPeople;
+            int countHours;
+            int countMinutes;
+            int countMinutesOneHuman = 10;
+            int countMinutesInHour = 60;
+            int countMinutesInQueu;
+            Console.Write("Сколько людей в очереди?: ");
+            countPeople = Convert.ToInt32(Console.ReadLine());
+            countMinutesInQueu = countPeople * countMinutesOneHuman;
+            countHours = countMinutesInQueu / 60;
+            countMinutes = countMinutesInQueu % 60;
+            Console.WriteLine($"Время ожидания {countHours} часов {countMinutes} минут.");
+        }
+    }
+}
