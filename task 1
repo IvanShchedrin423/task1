@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CSLight1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            byte dealingDamage;
+            bool isInventoryOpen;
+            float countMillionDollars;
+            char space;
+            string namePlayer;
+            uint countCoins;
+            sbyte profitFromSelling;
+            short deptToSupplier;
+            ushort countHealtPoints;
+            int distanceToTarget;        
+        }
+    }
+}
