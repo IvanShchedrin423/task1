@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Coins_and_Crystals
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int countCoins;
+            int priceCrystal = 10;
+            int countCrystals;
+            Console.WriteLine($"Добрый день, кристалл стоит {priceCrystal} монет.");
+            Console.Write("Сколько монет у вас есть?: ");
+            countCoins = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Сколько кристаллов вы бы хотели купить?: ");
+            countCrystals = Convert.ToInt32(Console.ReadLine());
+            countCoins -= countCrystals * priceCrystal;
+            Console.WriteLine($"Теперь у вас {countCoins} монет и {countCrystals} кристаллов");
+        }
+    }
+}
