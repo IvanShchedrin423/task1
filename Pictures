@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pictures
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int countPicturesAll;
+            int countSetOfPictures;
+            int countPicturesInSet;
+            Console.Write ("Введите количество картинок: ");
+            countPicturesAll =Convert.ToInt32( Console.ReadLine());
+            Console.Write("Введите количество картинок в ряду: ");
+            countPicturesInSet =Convert.ToInt32( Console.ReadLine());
+            countSetOfPictures = countPicturesAll / countPicturesInSet;
+            countPicturesAll%=countPicturesInSet;
+            Console.WriteLine($"Количество рядов {countSetOfPictures}");
+            Console.WriteLine($"Количество оставшихся картинок {countPicturesAll}");
+        }
+    }
+}
