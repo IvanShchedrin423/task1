@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pictures
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int countPictures = 52 ;
+            int countSet = countPictures / 3;
+            countPictures %= 3;
+            Console.WriteLine(countSet);
+            Console.WriteLine(countPictures);
+        }
+    }
+}
