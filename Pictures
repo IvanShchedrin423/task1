@@ -10,11 +10,17 @@ namespace Pictures
     {
         static void Main(string[] args)
         {
-            int countPictures = 52 ;
-            int countSet = countPictures / 3;
-            countPictures %= 3;
-            Console.WriteLine(countSet);
-            Console.WriteLine(countPictures);
+            int countPicturesAll;
+            int countSetOfPictures;
+            int countPicturesInSet;
+            Console.Write ("Введите количество картинок: ");
+            countPicturesAll =Convert.ToInt32( Console.ReadLine());
+            Console.Write("Введите количество картинок в ряду: ");
+            countPicturesInSet =Convert.ToInt32( Console.ReadLine());
+            countSetOfPictures = countPicturesAll / countPicturesInSet;
+            countPicturesAll%=countPicturesInSet;
+            Console.WriteLine($"Количество рядов {countSetOfPictures}");
+            Console.WriteLine($"Количество оставшихся картинок {countPicturesAll}");
         }
     }
 }
