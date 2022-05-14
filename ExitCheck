@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExitCheck
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string password = "exit", userInput;
+            Console.Write("Введите пароль: ");
+            userInput = Console.ReadLine();
+
+            while (userInput != password)
+            {
+                    Console.Write("Попробуйте другой пароль: ");
+                    userInput = Console.ReadLine();               
+            }
+
+            Console.WriteLine("Пароль верный! Доступ открыт.");
+        }
+    }
+}
