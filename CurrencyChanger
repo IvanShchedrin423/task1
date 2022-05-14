@@ -1,0 +1,93 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CurrencyChange
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            float sumRub;
+            float sumUsd;
+            float sumEur;
+            int rubToUsd = 66;
+            int rubToEur = 72;
+            int usdToRub = 65;
+            int usdToEur = 2; 
+            int eurToRub = 70;
+            int eurToUsd = 2;
+            int numberOfChoice;
+            Console.WriteLine("Здравствуйте! Рады приветствовать вас в нашем обменнике.");      
+
+            while (true)
+            {
+                Console.WriteLine("\n Чего желаете?:\n" +
+        "Нажмите 1 что бы купить USD за RUB\n" +
+        "нажмите 2 что бы купить EUR за RUB\n" +
+        "Нажмите 3 что бы продать USD за RUB\n" +
+        "Нажмите 4 что бы купить EUR за USD\n" +
+        "Нажмите 5 что бы продать EUR за RUB\n" +
+        "Нажмите 6 что бы купить USD за EUR\n" +
+        "Нажмите 0 что бы выйти");
+                numberOfChoice = Convert.ToInt32(Console.ReadLine());
+
+                if(numberOfChoice == 0)
+                    {
+                    break;                    
+                    }
+
+                else
+                    {
+                    switch (numberOfChoice)
+                    {
+                        case 1:
+                            Console.Write("Сколько USD вы бы хотели купить за RUB?");
+                            sumUsd = Convert.ToSingle(Console.ReadLine());
+                            sumRub = sumUsd * rubToUsd;
+                            Console.WriteLine("С вас " + sumRub + " рублей.");
+                            break;
+                        case 2:
+                            Console.Write("Сколько EUR вы бы хотели купить за RUB?");
+                            sumEur = Convert.ToSingle(Console.ReadLine());
+                            sumRub = sumEur * rubToEur;
+                            Console.WriteLine("С вас " + sumRub + " рублей.");
+                            break;
+                        case 3:
+                            Console.Write("Сколько USD вы бы хотели продать за RUB?");
+                            sumUsd = Convert.ToSingle(Console.ReadLine());
+                            sumRub = sumUsd * usdToRub;
+                            Console.WriteLine("Вы получите " + sumRub + " RUB.");
+                            break;
+                        case 4:
+                            Console.Write("Сколько EUR вы бы хотели купить за USD?");
+                            sumEur = Convert.ToSingle(Console.ReadLine());
+                            sumUsd = sumEur * usdToEur;
+                            Console.WriteLine("С вас " + sumUsd + " USD.");
+                            break;
+                        case 5:
+                            Console.Write("Сколько EUR вы бы хотели продать за RUB?");
+                            sumEur = Convert.ToSingle(Console.ReadLine());
+                            sumRub = sumEur * eurToRub;
+                            Console.WriteLine("Вы получите " + sumRub + " RUB.");
+                            break;
+                        case 6:
+                            Console.Write("Сколько USD вы бы хотели купить за EUR?");
+                            sumUsd = Convert.ToSingle(Console.ReadLine());
+                            sumEur = sumUsd * eurToUsd;
+                            Console.WriteLine("Вы получите " + sumUsd + " EUR.");
+                            break;
+                        default:
+                            Console.Write("Выберите один из вариантов ответа.");
+                            break;
+                    }
+                }
+
+            }
+                     
+                
+        }
+    }
+}
