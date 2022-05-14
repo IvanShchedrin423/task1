@@ -21,7 +21,6 @@ namespace RepeatMessage1
             {
                 Console.WriteLine(message);
             }
-
         }
     }
 }
