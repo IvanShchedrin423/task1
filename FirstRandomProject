@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FirstRandomProject
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int denominator1;
+            int denominator2;
+            int checkDenominator1;
+            int checkDenominator2;
+            int minBorder;
+            int maxBorder;
+            float checkRandom;
+            Console.Write("Введите нижнюю границу: ");
+            minBorder = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите верхнюю границу: ");
+            maxBorder = Convert.ToInt32(Console.ReadLine());
+            checkRandom = random.Next(minBorder, maxBorder+1);
+            Console.Write("Введите первое число на которое будет проверка делимости: ");
+            denominator1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число на которое будет проверка делимости: ");
+            denominator2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Числитель равен " + checkRandom);
+            
+            for (int i =minBorder; i < checkRandom; i++)
+            {
+                checkDenominator1 = i % denominator1;
+                checkDenominator2 = i % denominator2;
+
+                if (checkDenominator1 == 0 || checkDenominator2 == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+    }
+}
