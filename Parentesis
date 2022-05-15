@@ -19,6 +19,10 @@ namespace Parentesis
             parentesis = Console.ReadLine();
             foreach (var symbol in parentesis)
             {
+                if (corectCheck < 0)
+                {
+                    break;
+                }
                 if (symbol == openParentes)
                 {
                     corectCheck++;
