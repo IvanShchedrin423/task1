@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EpicBossFight
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int healthHeroStart = random.Next(300, 500);
+            int healthEnemy = random.Next(900, 1000);
+            int numberOFChoice;
+            int healthHeroRemain = healthHeroStart;
+            bool summonWerewolf = false;
+            Console.WriteLine("Герой " + healthHeroStart + " ХП/\n" +
+                "Враг" + healthEnemy + " ХП.");
+
+            while(healthHeroRemain>0 && healthEnemy > 0)
+            {
+                int damageWrath = random.Next(150, 200);
+                int damageFireball = random.Next(250, 500);
+                int selfDamageSummingOfWerewolf = random.Next(50, 100);
+                int healingSpell = random.Next(150, 250);
+                int werewolfDamage = random.Next(300, 350);
+                int enemyDamage = random.Next(50, 100);
+                Console.WriteLine("Выберите одну из следующих команд:\n" +
+                    "Нажмите 1 что бы Использовать заклинание Гнев, наносящее врагу от 150 до 200 урона\n" +
+                    "Нажмите 2 что бы использовать заклинание Огненный шар, наносящий врагу от 250 до 500 урона\n" +
+                    "Нажмите 3 что бы нанести себе от 50 до 100 урона и призвать Вервольфа\n" +
+                    "Нажмите 4 что бы исцелить себе от 150 до 250 здоровья.\n" +
+                    "Нажмите 5 что бы скомандовать Вервольфу атаковать и нанести от 300 до 350 урона");
+                numberOFChoice = Convert.ToInt32(Console.ReadLine());
+
+                switch (numberOFChoice)
+                {
+                    case 1:
+                        Console.WriteLine("Заклинание Гнев нанесло Боссу " + damageWrath + " урона.");
+                        healthEnemy -= damageWrath;
+                        break;
+                    case 2:
+                        Console.WriteLine("Заклинание Огненный шар нанесло Боссу " + damageWrath + " урона.");
+                        healthEnemy -= damageFireball;
+                        break;
+                    case 3:
+                        Console.WriteLine("Заклинание призыва нанесло вам " + selfDamageSummingOfWerewolf + " урона.'n" +
+                            "Теперь на вашей стороне сражается Вервольф.");
+                        summonWerewolf = true;
+                        break;
+                    case 4:
+                        if (healthHeroStart - healthHeroRemain > healingSpell)
+                        {
+                            Console.WriteLine("Вы исцелили себе " + healingSpell + "ХП.");
+                            healthHeroRemain += healingSpell;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Вы исцелили себе " + (healthHeroStart-healthHeroRemain) + "ХП.");
+                            healthHeroRemain = healthHeroStart;
+                        }
+                        break;
+                    case 5:
+                        if(summonWerewolf == true)
+                        {
+                            Console.WriteLine("Вервольф атаковал босса и нанес ему " + werewolfDamage + " урона.");
+                            healthEnemy -= werewolfDamage;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Сначала призовите Вервольфа.");
+                        }
+                        break;
+                }
+
+                Console.WriteLine("Враг нанес вам " + enemyDamage + " урона.");
+                healthHeroRemain -= enemyDamage;
+                Console.WriteLine("Осталось здоровья у вас " + healthHeroRemain + ". У Босса " + healthEnemy + ("."));
+
+            }
+
+            if (healthEnemy<= 0 && healthHeroRemain <= 0)
+            {
+                Console.WriteLine("Ничья.");
+            }
+
+            else if (healthEnemy <=0)
+            {
+                Console.WriteLine("Вы победили. Поздравляю.");
+            }
+
+            else
+            {
+                Console.WriteLine("Вы проиграли. Попробуйте еще раз.");
+            }
+        }
+    }
+}
