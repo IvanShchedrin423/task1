@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NameInBorder
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string name;
+            char symbol;
+            Console.Write("Введите Имя: ");
+            name = Console.ReadLine();
+            Console.Write("Введите символ: ");
+            symbol = Convert.ToChar(Console.ReadLine());
+            
+            for (int i = 0; i < name.Length + 2; i++)
+            {
+                Console.Write(symbol);
+            }
+
+            Console.WriteLine("\n" + symbol + name + symbol );
+
+            for (int i = 0; i < name.Length + 2; i++)
+            {
+                Console.Write(symbol);
+            }
+        }
+    }
+}
