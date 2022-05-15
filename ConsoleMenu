@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FirstApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string colorOfWords;
+            string userName;
+            string password;
+            string choiceOfUser;
+            choiceOfUser = "start";
+
+            userName = "Пользователь";
+            Console.WriteLine("Приветствую, " + userName + ". Выбери одну из следующих команд:");
+
+                while (choiceOfUser != "esc")
+            {
+                Console.WriteLine("Введите команду colorOfWords что бы изменить цвет шрифта\n" +
+                    "Введите команду userName что бы ввести имя пользователя\n" +
+                    "Введите команду password что бы задать пароль\n" +
+                    "Введите команду out что бы выйти из системы\n" + 
+                    "Введите команду esc что бы выйти");
+                choiceOfUser = Console.ReadLine();  
+
+                switch (choiceOfUser)
+                {
+                    case "colorOfWords":
+                        Console.WriteLine("Введите цвет в который хотите покрасить текст: Red, Green, Blue");
+                        colorOfWords = Console.ReadLine();
+
+                        switch(colorOfWords)
+                        {
+                            case "Red":
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                break;
+                            case "Green":
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                break;
+                            case "Blue":
+                                Console.ForegroundColor = ConsoleColor.Blue;
+                                break;
+                            default:
+                                Console.WriteLine("Я не знаю такого цвета.");
+                                break;
+                        }
+                        Console.WriteLine("Цвет шрифта изменен на " + colorOfWords);
+                        break;
+
+                    case "userName":
+                        Console.Write("Введите ваше имя:");
+                        userName = Console.ReadLine(); ;
+                        Console.WriteLine("Рад приветствовать " + userName + ". Очень рад вас видеть. Рекомендую установить пароль.");
+                        break;
+                    case "password":
+                        Console.Write("Введите ваш пароль:");
+                        password = Console.ReadLine(); ;
+                        Console.WriteLine("Не переживай, " + userName + ". Я сохраню твой секрет.");
+                        break;
+                    case "out":
+                        Console.WriteLine(userName + " , вы вышли из системы.");
+                        userName = "Пользователь";
+                        Console.WriteLine("Вы вошли под именем " + userName);
+                        break;
+                    case "esc":
+                        Console.WriteLine("До встречи, " + userName);
+                        break;
+                    default:
+                        Console.WriteLine("Введит один из вариантов.");
+                        break;
+                }
+            }
+        }
+    }
+}
