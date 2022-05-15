@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Parentesis
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string parentesis;
+            char openParentes = '(';
+            char closeParentes = ')';
+            int corectCheck = 0;
+            int numberOfDeep = 0;
+            Console.WriteLine("Введите комбинацию состоящую из скобок.");
+            parentesis = Console.ReadLine();
+            foreach (var symbol in parentesis)
+            {
+                if (symbol == openParentes)
+                {
+                    corectCheck++;
+                }
+
+                else if (symbol == closeParentes)
+                {
+                    corectCheck--;
+                }
+
+                if (numberOfDeep < corectCheck)
+                {
+                    numberOfDeep = corectCheck;
+                }
+
+            }
+
+            if (corectCheck == 0)
+            {
+                Console.WriteLine("Выражение является скобочно корректным.\n" +
+                    "Его максимальная глубина "+ numberOfDeep);
+            }
+            else
+            {
+                Console.WriteLine("Выражение не является скобочно корректным.");
+            }
+        }
+    }
+}
