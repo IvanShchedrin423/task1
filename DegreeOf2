@@ -1,0 +1,44 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DegreeOf2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int degree;
+            int userInput;
+            int minRange;
+            int maxRange;
+            int endNumber;
+            Console.Write("Введите нижнюю границу числа: ");
+            minRange = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите верхнюю границу числа: ");
+            maxRange = Convert.ToInt32(Console.ReadLine());
+            int randomNumber = random.Next(minRange, maxRange);
+            Console.Write("Введите число которое будем возводить в степень: ");
+            userInput = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(randomNumber);
+
+            if (userInput < randomNumber)
+            {
+                endNumber = userInput;
+
+                for (degree =1; endNumber <randomNumber; degree++)
+                {
+                    endNumber *= userInput ;
+                }
+                Console.WriteLine(degree);
+                Console.WriteLine(endNumber);
+
+            
+            }
+        }
+    }
+}
