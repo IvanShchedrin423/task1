@@ -11,28 +11,34 @@ namespace EpicBossFight
         static void Main(string[] args)
         {
             Random random = new Random();
-            int healthHeroStart = random.Next(300, 500);
-            int healthEnemy = random.Next(900, 1000);
+            Console.Write("Введите количество жизней героя: ");
+            int healthHeroStart=Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите количество жизней Босса: ");
+            int healthEnemy = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите количество урона Босса: ");
+            int enemyDamage = Convert.ToInt32(Console.ReadLine());
             int numberOFChoice;
             int healthHeroRemain = healthHeroStart;
             bool summonWerewolf = false;
-            Console.WriteLine("Герой " + healthHeroStart + " ХП/\n" +
-                "Враг" + healthEnemy + " ХП.");
+            Console.Write("Введите количество урона заклинания Гнев: ");
+            int damageWrath = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите количество урона заклинания Огненный шар: ");
+            int damageFireball = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите количество урона по вам от заклинания Призыв Вервольфа: ");
+            int selfDamageSummingOfWerewolf = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите количество здоровья восстанавливаемого от заклинания лечения: ");
+            int healingSpell = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите количество урона Вервольфа: ");
+            int werewolfDamage = Convert.ToInt32(Console.ReadLine());
 
-            while(healthHeroRemain>0 && healthEnemy > 0)
+            while (healthHeroRemain>0 && healthEnemy > 0)
             {
-                int damageWrath = random.Next(150, 200);
-                int damageFireball = random.Next(250, 500);
-                int selfDamageSummingOfWerewolf = random.Next(50, 100);
-                int healingSpell = random.Next(150, 250);
-                int werewolfDamage = random.Next(300, 350);
-                int enemyDamage = random.Next(50, 100);
                 Console.WriteLine("Выберите одну из следующих команд:\n" +
-                    "Нажмите 1 что бы Использовать заклинание Гнев, наносящее врагу от 150 до 200 урона\n" +
-                    "Нажмите 2 что бы использовать заклинание Огненный шар, наносящий врагу от 250 до 500 урона\n" +
-                    "Нажмите 3 что бы нанести себе от 50 до 100 урона и призвать Вервольфа\n" +
-                    "Нажмите 4 что бы исцелить себе от 150 до 250 здоровья.\n" +
-                    "Нажмите 5 что бы скомандовать Вервольфу атаковать и нанести от 300 до 350 урона");
+                    "Нажмите 1 что бы Использовать заклинание Гнев, наносящее врагу "+damageWrath +" урона\n" +
+                    "Нажмите 2 что бы использовать заклинание Огненный шар, наносящий врагу "+damageFireball +" урона\n" +
+                    "Нажмите 3 что бы нанести себе " + selfDamageSummingOfWerewolf + "урона и призвать Вервольфа\n" +
+                    "Нажмите 4 что бы исцелить себе от "+healingSpell +" здоровья.\n" +
+                    "Нажмите 5 что бы скомандовать Вервольфу атаковать и нанести от " + werewolfDamage + " урона");
                 numberOFChoice = Convert.ToInt32(Console.ReadLine());
 
                 switch (numberOFChoice)
@@ -46,9 +52,10 @@ namespace EpicBossFight
                         healthEnemy -= damageFireball;
                         break;
                     case 3:
-                        Console.WriteLine("Заклинание призыва нанесло вам " + selfDamageSummingOfWerewolf + " урона.'n" +
+                        Console.WriteLine("Заклинание призыва нанесло вам " + selfDamageSummingOfWerewolf + " урона.\n" +
                             "Теперь на вашей стороне сражается Вервольф.");
                         summonWerewolf = true;
+                        healthHeroRemain -= selfDamageSummingOfWerewolf;
                         break;
                     case 4:
                         if (healthHeroStart - healthHeroRemain > healingSpell)
