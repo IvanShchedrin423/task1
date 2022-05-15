@@ -10,38 +10,26 @@ namespace Denominatoracheck
     {
         static void Main(string[] args)
         {
-            int minBorderOfNumber;
-            int maxBorderOfNumber;
-            int minBorderOfNumerator;
-            int maxBorderOfNumerator;
-            int donor;
+            int minBorderOfNumber=1;
+            int maxBorderOfNumber=27;
+            int minBorderOfNumerator=100;
+            int maxBorderOfNumerator=1000;
+            int subtotal;
             Random random = new Random();
-            Console.WriteLine("Введите минимальное значение: ");
-            minBorderOfNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите максимальное значение: ");
-            maxBorderOfNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите минимальное значение диапазона деления: ");
-            minBorderOfNumerator = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите максимальное значение диапазона деления: ");
-            maxBorderOfNumerator = Convert.ToInt32(Console.ReadLine());
             int number  = random.Next(minBorderOfNumber, maxBorderOfNumber);
             Console.WriteLine("Число на которое будем делить: " + number);
+            subtotal = number;
 
-            for (int i = minBorderOfNumerator; i <= maxBorderOfNumerator; i++)        
-                {donor = i;
-
-                while (donor > 0)
-                {
-                    donor-=number;
-                    
-                }
-
-                if (donor == 0)
-                {
-                    Console.WriteLine(i);
-                }
+            while (subtotal < maxBorderOfNumerator )        
+           {
+                   if (subtotal >= minBorderOfNumerator)
+                    {
+                     Console.WriteLine(subtotal);
+                    }
+                subtotal += number;
             }
 
         }
     }
 }
+
