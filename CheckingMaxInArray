@@ -14,7 +14,7 @@ namespace MaxInArray
             Console.Write("Введите размер матрицы: ");
             int sizeOfArray = Convert.ToInt32(Console.ReadLine());
             int[,] array = new int[sizeOfArray, sizeOfArray];
-            int СheckingMaxElement = array[0,0];
+            int _сheckingMaxElement = array[0,0];
             Console.WriteLine("Введите верхний порог массива: ");
             int maxRange = Convert.ToInt32(Console.ReadLine());            
             Console.WriteLine("Введите нижний порог массива: ");
@@ -36,20 +36,20 @@ namespace MaxInArray
                 
             foreach (int element in array)
                 {
-                    if (СheckingMaxElement < element)
+                    if (_сheckingMaxElement < element)
                     {
-                        СheckingMaxElement = element;
+                        _сheckingMaxElement = element;
                     }
                 }
 
-            Console.WriteLine(checkingMaxElement);
+            Console.WriteLine(_checkingMaxElement);
             Console.WriteLine();
 
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    if(array[i, j] == checkingMaxElement)
+                    if(array[i, j] == _checkingMaxElement)
                     {
                         array[i, j] = 0;
                     }
