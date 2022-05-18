@@ -12,36 +12,41 @@ namespace LocalMax
         {
             Console.Write("Введите размер массива: ");
             int sizeOfArray = Convert.ToInt32(Console.ReadLine());
-            int[] Array = new int[sizeOfArray];
+            Console.Write("Введите максимальный предел массива: ");
+            int maxRange = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите минимальный предел массива: ");
+            int minRange = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[sizeOfArray];
             Random random = new Random();
 
-            for (int i = 0; i < Array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                Array[i] = random.Next(0, 100);
-                Console.Write(Array[i] + " ");
+                array[i] = random.Next(minRange, maxRange);
+                Console.Write(array[i] + " ");
             }
 
             Console.WriteLine();
 
-            if (Array[0] > Array[1])
+            if (array[0] > array[1])
             {
-                Console.WriteLine(Array[0]);
+                Console.WriteLine(array[0]);
             }
 
-            for (int i = 1; i < Array.Length - 1; i++)
+            for (int i = 1; i < array.Length - 1; i++)
             {
-                if (Array[i] > Array[i - 1] && Array[i] > Array[i + 1])
+                if (array[i] > array[i - 1] && array[i] > array[i + 1])
                 {
-                    Console.WriteLine(Array[i]);
+                    Console.WriteLine(array[i]);
                 }
 
             }
 
-            if (Array[Array.Length - 1] > Array[Array.Length-2])
+            if (array[array.Length - 1] > array[array.Length-2])
             { 
-                Console.WriteLine(Array[Array.Length-1]);
+                Console.WriteLine(array[array.Length-1]);
             }
 
         }
     }
 }
+
