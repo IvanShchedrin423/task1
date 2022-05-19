@@ -11,12 +11,14 @@ namespace SumOfArray
         static void Main(string[] args)
         {
             int[] startArray = new int[1];
-            int sum = startArray[0];
+            int sum = 0;
+            int count = 0;
             bool exit = false;
+            int[] nextArray = new int[startArray.Length + 1];
 
-            for (int i = 0;exit ==false ; i++)
+            while(exit==false)
             {
-                Console.WriteLine("Введите следующий элемент: ");
+                Console.WriteLine("Введите следующий элемент, sum для отображения суммы,exit для выхода: ");
                 string element = Console.ReadLine();
 
                 switch (element)
@@ -28,21 +30,24 @@ namespace SumOfArray
                         exit = true;
                         break;
                     default:
-                        bool success = int.TryParse(element, out int number);
+                            bool success = int.TryParse(element, out int number);
 
-                        if (success)
-                        {
-                            int[] nextArray = new int[startArray.Length + i];
-                            nextArray[i] = Convert.ToInt32(element);
-                            sum += nextArray[i];
-                        }
+                            if (success)
+                            {
+                                int[] endArray = new int[nextArray.Length + 1];
+                                endArray[count] = Convert.ToInt32(element);
+                                sum += endArray[count];
+                                count++;
+                            }
 
-                        else
-                        {
-                            Console.WriteLine("Введите число либо команду exit или sum.");
-                        }
+                            else
+                            {
+                                Console.WriteLine("Введите число либо команду exit или sum.");
+                            }                      
+                            
                         break;
                 }
+
 
             }
 
