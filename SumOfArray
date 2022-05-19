@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SumOfArray
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] startArray = new int[1];
+            int sum = startArray[0];
+            bool exit = false;
+
+            for (int i = 0;exit ==false ; i++)
+            {
+                Console.WriteLine("Введите следующий элемент: ");
+                string element = Console.ReadLine();
+
+                switch (element)
+                {
+                    case "sum":
+                        Console.WriteLine(sum);
+                        break;
+                    case "exit":
+                        exit = true;
+                        break;
+                    default:
+                        bool success = int.TryParse(element, out int number);
+
+                        if (success)
+                        {
+                            int[] nextArray = new int[startArray.Length + i];
+                            nextArray[i] = Convert.ToInt32(element);
+                            sum += nextArray[i];
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Введите число либо команду exit или sum.");
+                        }
+                        break;
+                }
+
+            }
+
+        }
+    }
+}
