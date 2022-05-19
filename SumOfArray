@@ -11,11 +11,7 @@ namespace SumOfArray
         static void Main(string[] args)
         {
             int[] startArray = new int[1];
-            int sum = 0;
-            int count = 0;
             bool exit = false;
-            int[] nextArray = new int[startArray.Length + 1];
-
             while(exit==false)
             {
                 Console.WriteLine("Введите следующий элемент, sum для отображения суммы,exit для выхода: ");
@@ -24,6 +20,11 @@ namespace SumOfArray
                 switch (element)
                 {
                     case "sum":
+                        int sum = 0;
+                        for(int i = 0; i < startArray.Length-1; i++)
+                        {
+                            sum+=startArray[i];
+                        }
                         Console.WriteLine(sum);
                         break;
                     case "exit":
@@ -34,11 +35,16 @@ namespace SumOfArray
 
                             if (success)
                             {
-                                int[] endArray = new int[nextArray.Length + 1];
-                                endArray[count] = Convert.ToInt32(element);
-                                sum += endArray[count];
-                                count++;
+                                int[] endArray = new int[startArray.Length +1];
+
+                            for(int i = 0; i<startArray.Length; i++)
+                            {
+                                endArray[i] = startArray[i];
                             }
+                                endArray[endArray.Length - 2] = Convert.ToInt32(element);
+                                startArray = endArray;
+                            Console.WriteLine(startArray.Length);
+                             }
 
                             else
                             {
@@ -54,3 +60,5 @@ namespace SumOfArray
         }
     }
 }
+
+
