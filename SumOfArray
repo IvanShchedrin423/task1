@@ -10,7 +10,7 @@ namespace SumOfArray
     {
         static void Main(string[] args)
         {
-            int[] startArray = new int[];
+            int[] startArray = new int[0];
             bool closeProgramm = false;
 
             while(closeProgramm==false)
@@ -22,7 +22,7 @@ namespace SumOfArray
                 {
                     case "sum":
                         int sum = 0;
-                        for(int i = 0; i < startArray.Length-1; i++)
+                        for(int i = 0; i < startArray.Length; i++)
                         {
                             sum+=startArray[i];
                         }
@@ -43,7 +43,7 @@ namespace SumOfArray
                                 endArray[i] = startArray[i];
                             }
 
-                                endArray[endArray.Length - 2] = Convert.ToInt32(element);
+                                endArray[endArray.Length - 1] = Convert.ToInt32(element);
                                 startArray = endArray;
                             Console.WriteLine(startArray.Length);
                              }
@@ -62,5 +62,4 @@ namespace SumOfArray
         }
     }
 }
-
 
